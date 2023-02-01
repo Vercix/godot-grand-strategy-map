@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://clq726buho637"
+path="res://.godot/imported/state_conversion.glsl-75ff4c453d8923a85687364905d3bc00.res"
+
+[deps]
+
+source_file="res://ComputeShaders/state_conversion.glsl"
+dest_files=["res://.godot/imported/state_conversion.glsl-75ff4c453d8923a85687364905d3bc00.res"]
+
+[params]
+
