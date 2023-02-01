@@ -1,4 +1,4 @@
-<h1>Godot Grand Startegy Map</h1>
+<h1>Godot Grand Strategy Map</h1>
 
 ![Visual description of concept](/Assets/Demo.jpg "Image Title")
 
