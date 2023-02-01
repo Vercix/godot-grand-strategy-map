@@ -14,7 +14,7 @@ var look_up_image : Image
 func _ready():
 	# we need an array of states. Where each index corresponds to the color of the state. 
 	# And each value is its id
-	var states : Array;
+	var states := [];
 
 	#Maximum amount of states with this method is ~16 million. Should be enough...
 	#If more is needed then the alpha channel could be used too.
