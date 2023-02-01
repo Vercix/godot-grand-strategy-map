@@ -143,6 +143,17 @@ func compute_convert_states(data : PackedInt32Array, image_data : PackedByteArra
 	# Read back the data from the buffer
 	var result_buffer := rendering_device.buffer_get_data(output_buffer);
 	var result : PackedVector3Array = to_vec3_array(result_buffer);
+	
+	#clean up
+	rendering_device.free_rid(uniform_set)
+	rendering_device.free_rid(pipeline)
+	rendering_device.free_rid(v_tex)
+	rendering_device.free_rid(buffer)
+	rendering_device.free_rid(output_buffer)
+	rendering_device.free_rid(samp)
+	rendering_device.free_rid(shader)
+	rendering_device.free()
+	
 	return result;
 
 
