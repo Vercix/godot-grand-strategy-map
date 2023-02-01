@@ -57,7 +57,7 @@ func _ready():
 	#The image we are going to be working on
 	if !FileAccess.file_exists("res://Assets/states.bmp"): return false;
 	
-	var image := Image.load_from_file("res://Assets/states.bmp");
+	var image := preload("res://Assets/states.bmp").get_image();
 	var image_data := image.get_data()
 	var image_dimensions := image.get_size()
 
