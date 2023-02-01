@@ -40,7 +40,6 @@ func _ready():
 			#We want to convert the color to its index representation. i.e. convert 3D value to 1D value
 			#And then set the value to the state ID
 			states[convert_to_index(Color(array[0], array[1], array[2], array[3]))] = result[color_string].id;
-			print(convert_to_index(Color(array[0], array[1], array[2], array[3])))
 			#Set the color at the uv coord that corresponds to the id
 			#little bit hacky for hackathon 
 			var owner_colour = Color(result[color_string].owner_colour)
