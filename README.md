@@ -1,7 +1,8 @@
 <h1>Godot Grand Startegy Map</h1>
 
-This is a project for the <a href="https://godotengine.org/">Godot game engine</a>.
+![Visual description of concept](/Assets/Demo.jpg "Image Title")
 
+This is a project for the <a href="https://godotengine.org/">Godot game engine</a>.
 
 <h2>General Concept</h2>
 
