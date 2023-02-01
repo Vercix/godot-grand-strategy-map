@@ -210,6 +210,13 @@ func convert_to_index(color : Color):
 func _on_control_gui_input(event):
 	if event is InputEventMouseMotion:
 		var mouse_motion_event = event as InputEventMouseMotion
-		var state_id  = state_uvs.get(look_up_image.get_pixelv(mouse_motion_event.position))
+		
+		#assume that the image is not centered
+		if mouse_motion_event.position.x < map.global_position.x or \
+		mouse_motion_event.position.y < map.global_position.x or \
+		mouse_motion_event.position.x > map.global_position.x + map.get_rect().size.x - 1 or \
+		mouse_motion_event.position.y > map.global_position.y + map.get_rect().size.y - 1:
+			return   
+		var state_id  = state_uvs.get(look_up_image.get_pixelv(mouse_motion_event.position - map.global_position))
 		if state_id:
 			label.set_text(str( state_id))
