@@ -37,13 +37,13 @@ func _ready():
 		if result == null: return;
 		
 		for color_string in result:
-			var array = color_string.split_floats(',')
+			var map_color : Color = get_color_from_8_string(color_string)
 			#We want to convert the color to its index representation. i.e. convert 3D value to 1D value
 			#And then set the value to the state ID
-			states[convert_to_index(Color(array[0], array[1], array[2], array[3]))] = result[color_string].id;
+			states[convert_to_index(map_color)] = result[color_string].id;
 			#Set the color at the uv coord that corresponds to the id
 			#little bit hacky for hackathon 
-			var owner_colour = Color(result[color_string].owner_colour)
+			var owner_colour = get_color_from_8_string(result[color_string].owner_colour)
 			var uv = Vector2(float(int(result[color_string].id) % DIM), floor(result[color_string].id / DIM))
 			state_uvs[Color(float(int(result[color_string].id) % DIM) / (DIM - 1), floor(result[color_string].id / DIM) / (DIM - 1), 0.0)] =  result[color_string].id
 			owner_map.set_pixel(uv.x, uv.y, owner_colour)
@@ -65,6 +65,16 @@ func _ready():
 	var result = compute_convert_states(states, image_data, image_dimensions)
 	look_up_image = create_lookup_image(result, image_dimensions)
 	map.material.set_shader_parameter('lookup_texture', ImageTexture.create_from_image(look_up_image))
+
+
+func get_color_from_8_string(string : String) -> Color:
+	var result := Color();
+	var strings = string.split_floats(',')
+	if strings.size() != 3: return result;
+	
+	result = Color8(int(strings[0]), int(strings[1]), int(strings[2]))
+	
+	return result
 
 
 func compute_convert_states(data : PackedInt32Array, image_data : PackedByteArray, dimensions : Vector2i) -> PackedByteArray:
