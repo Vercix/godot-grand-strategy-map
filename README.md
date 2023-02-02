@@ -12,7 +12,7 @@ The program starts by reading the 'province image', located at /Assets/states.bm
 
 <h3>Compute Shader</h3>
 
-The compute shader takes in the data and converts it to an image where each pixel is the uv coordinate for the colour look up image. i.e. bottom image in step 2 in the image above.
+The compute shader takes in the data and converts it to an image where each pixel is the uv coordinate for the color look up image. i.e. bottom image in step 2 in the image above.
 
 <h3>GdShader</h3>
 

@@ -1,16 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgyvugklvhdy4"]
+[gd_scene load_steps=5 format=3 uid="uid://cgyvugklvhdy4"]
 
 [ext_resource type="Script" path="res://Root.gd" id="1_ef227"]
 [ext_resource type="Shader" path="res://Shaders/MapShader.gdshader" id="2_spw1g"]
-[ext_resource type="Texture2D" uid="uid://b4vwnuysobqo4" path="res://result.png" id="3_h50ih"]
 [ext_resource type="Texture2D" uid="uid://csxwpo57j8d3k" path="res://Assets/states.bmp" id="3_pllly"]
-[ext_resource type="Texture2D" uid="uid://la70adsksy0s" path="res://owner_map.png" id="4_8gs7h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_catxq"]
 shader = ExtResource("2_spw1g")
 shader_parameter/selected_area = null
-shader_parameter/lookup_texture = ExtResource("3_h50ih")
-shader_parameter/color_texture = ExtResource("4_8gs7h")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ef227")

@@ -43,10 +43,10 @@ func _ready():
 			states[convert_to_index(map_color)] = result[color_string].id;
 			#Set the color at the uv coord that corresponds to the id
 			#little bit hacky for hackathon 
-			var owner_colour = get_color_from_8_string(result[color_string].owner_colour)
+			var owner_color = get_color_from_8_string(result[color_string].owner_color)
 			var uv = Vector2(float(int(result[color_string].id) % DIM), floor(result[color_string].id / DIM))
 			state_uvs[Color(float(int(result[color_string].id) % DIM) / (DIM - 1), floor(result[color_string].id / DIM) / (DIM - 1), 0.0)] =  result[color_string].id
-			owner_map.set_pixel(uv.x, uv.y, owner_colour)
+			owner_map.set_pixel(uv.x, uv.y, owner_color)
 	else:
 		#No file so return
 		return;

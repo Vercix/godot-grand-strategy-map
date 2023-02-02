@@ -24,6 +24,6 @@ void fragment() {
 	}
 //	//For selected area
 //	if(is_same_color(lookup_uv.rgb, selected_area.rgb)){
-//		COLOR = vec4(1.0,1.0,1.0,1.0);
+//		color = vec4(1.0,1.0,1.0,1.0);
 //	}
 }
