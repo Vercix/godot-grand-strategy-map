@@ -65,7 +65,7 @@ func _ready():
 	look_up_image = create_image_from_vec(result, image_dimensions)
 	map.material.set_shader_parameter('lookup_texture', ImageTexture.create_from_image(look_up_image))
 
-func compute_convert_states(data : PackedInt32Array, image_data : PackedByteArray, dimensions : Vector2i) -> PackedVector3Array:
+func compute_convert_states(data : PackedInt32Array, image_data : PackedByteArray, dimensions : Vector2i) -> PackedVector2Array:
 	# Create a local rendering device.
 	var rendering_device := RenderingServer.create_local_rendering_device()
 	# Load GLSL shader
@@ -86,7 +86,7 @@ func compute_convert_states(data : PackedInt32Array, image_data : PackedByteArra
 	
 	##################################################################
 	# OUTPUT BUFFER
-	var output = PackedVector3Array()
+	var output = PackedVector2Array()
 	output.resize(dimensions.x * dimensions.y)
 	var output_bytes := output.to_byte_array()
 	var output_buffer := rendering_device.storage_buffer_create(output_bytes.size(), output_bytes)
@@ -142,7 +142,7 @@ func compute_convert_states(data : PackedInt32Array, image_data : PackedByteArra
 	
 	# Read back the data from the buffer
 	var result_buffer := rendering_device.buffer_get_data(output_buffer);
-	var result : PackedVector3Array = to_vec3_array(result_buffer);
+	var result : PackedVector2Array = to_vec2_array(result_buffer);
 	
 	#clean up
 	rendering_device.free_rid(uniform_set)
@@ -157,13 +157,13 @@ func compute_convert_states(data : PackedInt32Array, image_data : PackedByteArra
 	return result;
 
 
-func to_vec3_array(data : PackedByteArray) -> PackedVector3Array:
+func to_vec2_array(data : PackedByteArray) -> PackedVector2Array:
 	#The shader outputs 32bit floats
 	var floats = data.to_float32_array();
-	var output = PackedVector3Array();
+	var output = PackedVector2Array();
 	
-	for x in range(0, floats.size(), 3):
-		output.append(Vector3(floats[x], floats[x + 1], floats[x + 2]));
+	for x in range(0, floats.size(), 2):
+		output.append(Vector2(floats[x], floats[x + 1]));
 		
 	return output;
 
@@ -188,21 +188,19 @@ func create_image_png(data : PackedFloat64Array, data_size : int, image_dimensio
 	new_image.save_png('result.png')
 
 
-func create_image_from_vec(data : PackedVector3Array,  image_dimensions : Vector2i ) -> Image:
+func create_image_from_vec(data : PackedVector2Array,  image_dimensions : Vector2i ) -> Image:
 	var image_data := PackedFloat32Array()
 
 	for i in range(data.size()):
-		var value : Vector3 = Vector3(data[i].x, data[i].y, data[i].z);
+		var value : Vector2 = Vector2(data[i].x, data[i].y);
 		image_data.append(value.x);
 		image_data.append(value.y);
-		image_data.append(value.z);
-		image_data.append(1.0);
 		
 	var new_image : Image = Image.create_from_data(
 		image_dimensions.x,
 		image_dimensions.y,
 		false,
-		Image.FORMAT_RGBAF,
+		Image.FORMAT_RGF,
 		image_data.to_byte_array()
 	);
 	

@@ -20,7 +20,7 @@ layout(set = 0, binding = 0, std430) restrict buffer DataBuffer {
 
 //The output image
 layout(set = 0, binding = 1, std430) buffer OutputBuffer {
-	float data[n][m][3];
+	float data[n][m][2];
 }output_buffer;
 
 // The province image
@@ -47,7 +47,4 @@ void main() {
 
    output_buffer.data[coord.y][coord.x][0] = u;
    output_buffer.data[coord.y][coord.x][1] = v;
-   //TODO This is technically not needed. But will need to adjust the cpu side of parsing the output
-   //Although it is another channel that could be used for other kind of data...
-   output_buffer.data[coord.y][coord.x][2] = 0.0;
 }
