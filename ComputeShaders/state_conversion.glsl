@@ -5,8 +5,8 @@
 //It needs to be as const as they are used to set the output buffer dimensions
 //So cant use uniforms or buffer
 //Dimensions of the province image
-const int m = 128;
-const int n = 64;
+const int m = 1280;
+const int n = 640;
 //Dimensions of the color look up image
 const int DIM = 255;
 

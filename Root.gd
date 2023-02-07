@@ -145,7 +145,7 @@ func compute_convert_states(data : PackedInt32Array, image_data : PackedByteArra
 	
 	#NOTE: the 2nd and 3rd parameters products with the invocation x and y should be the dimensions of the resulting image  
 	#See note in the shader, this will probably be best to be set through defines. 
-	rendering_device.compute_list_dispatch(compute_list, 32, 16, 1)
+	rendering_device.compute_list_dispatch(compute_list, 320, 160, 1)
 	rendering_device.compute_list_end()
 	
 	# Submit to GPU and wait for sync
