@@ -23,7 +23,7 @@ The results of the compute shader are used as uniforms in a godot shader. Which 
 
 You can open the project in the Godot editor and just press play. Hover over the different states of Denmark and Germany and you should see a unique id in the label below.  
 
-<b>Note that a limitation right now is that the image given can only be 128x64. You can easily change that by editing the project. See comment on line 147 of Root.gd</b>
+<b>Note that a limitation right now is that the image dimension is hardcoded. You can easily change that by editing the project. See comment on line 147 of Root.gd</b>
 
 
 <h2>References</h2>
