@@ -6,7 +6,7 @@ uniform vec4 selected_area;
 
 bool is_same_color(vec3 a, vec3 b){
 	vec3 diff = abs(a - b); 
-	return  diff.r < 0.005 &&  diff.g < 0.005 &&  diff.b < 0.005;
+	return  diff.r < 0.000001 &&  diff.g < 0.000001 &&  diff.b < 0.000001;
 }
 
 void fragment() {
