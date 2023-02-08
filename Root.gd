@@ -198,9 +198,9 @@ func _on_control_gui_input(event):
 		#assume that the image is not centered
 		if mouse_motion_event.position.x < map.global_position.x or \
 		mouse_motion_event.position.y < map.global_position.x or \
-		mouse_motion_event.position.x > map.global_position.x + map.get_rect().size.x - 1 or \
-		mouse_motion_event.position.y > map.global_position.y + map.get_rect().size.y - 1:
+		mouse_motion_event.position.x / map.global_scale.x > (map.global_position.x + map.get_rect().size.x - 1)  or \
+		mouse_motion_event.position.y  / map.global_scale.y > (map.global_position.y + map.get_rect().size.y - 1):
 			return   
-		var state_id  = state_uvs.get(look_up_image.get_pixelv(mouse_motion_event.position - map.global_position))
+		var state_id  = state_uvs.get(look_up_image.get_pixelv((mouse_motion_event.position - map.global_position) / map.global_scale))
 		if state_id:
 			label.set_text(str( state_id))
