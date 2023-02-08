@@ -14,10 +14,11 @@ script = ExtResource("1_ef227")
 [node name="Map" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_catxq")
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_pllly")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 1152, 600)
+region_rect = Rect2(0, 0, 1280, 640)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -34,7 +35,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -48.0
+offset_top = -73.0
 grow_horizontal = 2
 grow_vertical = 0
 
